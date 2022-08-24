@@ -39,18 +39,18 @@ const reviews = [
 
 let currentItem = 0;
 
-window.addEventListener(`DOMContentLoaded`, function () {
+window.addEventListener(`DOMContentLoaded`, () => {
   showPerson(currentItem);
 });
 
-function showPerson(person) {
+let showPerson = (person) => {
   let items = reviews[person];
   personImg.src = items.img;
   author.textContent = items.name;
   job.textContent = items.job;
   info.textContent = items.text;
-}
-nextBtn.addEventListener(`click`, function () {
+};
+nextBtn.addEventListener(`click`, () => {
   currentItem++;
   if (currentItem > reviews.length - 1) {
     currentItem = 0;
@@ -58,7 +58,7 @@ nextBtn.addEventListener(`click`, function () {
   showPerson(currentItem);
 });
 
-prevBtn.addEventListener(`click`, function () {
+prevBtn.addEventListener(`click`, () => {
   currentItem--;
   if (currentItem < 0) {
     currentItem = reviews.length - 1;
@@ -66,7 +66,7 @@ prevBtn.addEventListener(`click`, function () {
   showPerson(currentItem);
 });
 
-randomBtn.addEventListener(`click`, function () {
+randomBtn.addEventListener(`click`, () => {
   currentItem = Math.floor(Math.random() * reviews.length);
   showPerson(currentItem);
 });
